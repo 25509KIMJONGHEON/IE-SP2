@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JH LoLインフォ - リーグ・オブ・レジェンド情報サイト</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 上部ヘッダー全体 -->
+  <header class="top-header">
+    <div class="top-header-inner">
+      <div class="site-logo">
+        <span class="logo-main">JH LoLインフォ</span>
+        <span class="logo-sub">リーグ・オブ・レジェンド 情報 / コミュニティ</span>
+      </div>
+      <div class="top-actions">
+        <button class="btn-outline">ログイン</button>
+        <button class="btn-primary">新規登録</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- メインナビゲーション -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <ul class="nav-left">
+        <li class="nav-item active"><a href="#">ホーム</a></li>
+        <li class="nav-item"><a href="#champions">チャンピオン</a></li>
+        <li class="nav-item"><a href="#guides">攻略</a></li>
+        <li class="nav-item"><a href="#db">LoLデータベース</a></li>
+        <li class="nav-item"><a href="#community">コミュニティ</a></li>
+        <li class="nav-item"><a href="#tierlist">ティアリスト</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="text" placeholder="サモナー名 / チャンピオン検索" />
+        <button>検索</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ページメインコンテナ -->
+  <main class="page">
+    <div class="page-inner">
+      <!-- 左カラム：主要メニュー / DB -->
+      <aside class="col-left">
+        <section class="panel">
+          <h2 class="panel-title">LoL 主要メニュー</h2>
+          <ul class="link-list">
+            <li><a href="#champions">● チャンピオン情報</a></li>
+            <li><a href="#db">● シーズン15 ルーン / アイテムDB</a></li>
+            <li><a href="#guides">● チャンピオン攻略掲示板</a></li>
+            <li><a href="#tierlist">● パッチ別ティアリスト</a></li>
+            <li><a href="#community">● 小技 / ノウハウ</a></li>
+          </ul>
+        </section>
+
+        <section class="panel" id="db">
+          <h2 class="panel-title">LoLデータベース へのショートカット</h2>
+          <ul class="tag-grid">
+            <li><a href="#db">ルーンシミュレーター</a></li>
+            <li><a href="#db">アイテムDB</a></li>
+            <li><a href="#db">サモナースペル</a></li>
+            <li><a href="#db">スキンギャラリー</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <!-- 中央カラム：ニュース / パッチノート / ハイライト -->
+      <section class="col-center">
+        <!-- メインビジュアル的なカード -->
+        <section class="hero-card">
+          <div class="hero-text">
+            <h1>リーグ・オブ・レジェンド 情報ハブ</h1>
+            <p>
+              最新パッチノート、eスポーツニュース、チャンピオン攻略、ティアリストまで
+              ひとつのページで確認できる、LoL情報サイトのトップページサンプル。
+            </p>
+            <div class="hero-actions">
+              <a href="#patch" class="btn-primary">最新パッチを見る</a>
+              <a href="#tierlist" class="btn-outline">ティアリストをチェック</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- 最新ニュース -->
+        <section id="news" class="panel">
+          <h2 class="panel-title">最新LoLニュース</h2>
+          <ul class="news-list">
+            <li>
+              <a href="#">
+                <span class="news-tag news-tag-patch">パッチ</span>
+                <span class="news-title">パッチ15.15まとめ ― メタを揺るがす大型チャンピオン調整</span>
+                <span class="news-meta">2025-11-14 · 公式パッチノート簡易まとめ</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="news-tag news-tag-esports">eスポーツ</span>
+                <span class="news-title">LCK 2025 決勝 レビュー ― T1 vs KT 名試合振り返り</span>
+                <span class="news-meta">LCK · 決勝レビュー / ハイライトリンク集</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="news-tag news-tag-guide">攻略</span>
+                <span class="news-title">ソロランクでキャリーしやすいジャングルチャンプ5選</span>
+                <span class="news-meta">ダイア帯基準のユーザー投稿攻略まとめ</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="news-tag news-tag-event">イベント</span>
+                <span class="news-title">2025 ワールズスキンイベント 期間 / 報酬一覧</span>
+                <span class="news-meta">イベント日程 / トークンの使い道まとめ</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- パッチ / 攻略ハイライト -->
+        <section id="patch" class="panel panel-grid">
+          <div>
+            <h2 class="panel-title">最近のパッチポイント</h2>
+            <ul class="bullet-list">
+              <li>ジャングルキャンプの経験値 / ゴールド調整</li>
+              <li>高レート帯で勝率が高すぎたチャンピオンのナーフ</li>
+              <li>初心者向けスターターアイテムの性能強化</li>
+            </ul>
+          </div>
+          <div id="guides">
+            <h2 class="panel-title">人気攻略</h2>
+            <ul class="link-list">
+              <li><a href="#">【ミッド】アジール ライン戦 / 集団戦ポジション解説</a></li>
+              <li><a href="#">【ジャングル】ヴィエゴ キャリールート（3キャンプルート）</a></li>
+              <li><a href="#">【トップ】カミール vs タンク チャンピオン対策</a></li>
+            </ul>
+          </div>
+        </section>
+      </section>
+
+      <!-- 右カラム：コミュニティ / ロール別板 / ティア表 -->
+      <aside class="col-right">
+        <section id="community" class="panel">
+          <h2 class="panel-title">LoLコミュニティ</h2>
+          <ul class="link-list">
+            <li><a href="#">雑談掲示板</a></li>
+            <li><a href="#">LoL / eスポーツ掲示板</a></li>
+            <li><a href="#">攻略・小技共有</a></li>
+            <li><a href="#">バグ / 不具合報告</a></li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">ロール別掲示板</h2>
+          <ul class="tag-grid">
+            <li><a href="#">トップ</a></li>
+            <li><a href="#">ジャングル</a></li>
+            <li><a href="#">ミッド</a></li>
+            <li><a href="#">ボット</a></li>
+            <li><a href="#">サポート</a></li>
+          </ul>
+        </section>
+
+        <section id="tierlist" class="panel">
+          <h2 class="panel-title">簡易ティアリスト（サンプル）</h2>
+          <div class="tierlist">
+            <div class="tier-row">
+              <span class="tier-label">Sティア</span>
+              <span class="tier-champs">ゼド・ヴィエゴ・アジール・カイ＝サ</span>
+            </div>
+            <div class="tier-row">
+              <span class="tier-label">Aティア</span>
+              <span class="tier-champs">カミール・リー・シン・ラカン・ジンクス</span>
+            </div>
+            <div class="tier-row">
+              <span class="tier-label">Bティア</span>
+              <span class="tier-champs">ガレン・エズリアル・モルガナ</span>
+            </div>
+          </div>
+          <p class="tier-note">※ 実際の統計ではなくUIデザイン用の例なので、後で自分のデータに差し替えてもよい。</p>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>© 2025 JH LoLインフォ クローン練習サイト。Riot Games および Inven 公式サイトとは一切関係のない個人作成の学習用ページです。</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
