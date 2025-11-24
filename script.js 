@@ -1,0 +1,94 @@
+// DOM 로드 후 실행
+document.addEventListener("DOMContentLoaded", () => {
+  setupChampionSearch();
+});
+
+function setupChampionSearch() {
+  const input = document.getElementById("champion-search-input");
+  const cards = document.querySelectorAll(".champion-card");
+
+  if (!input || !cards.length) return;
+
+  input.addEventListener("input", () => {
+    const keyword = input.value.trim().toLowerCase();
+
+    cards.forEach((card) => {
+      const name = card.dataset.name.toLowerCase();
+      const role = card.dataset.role.toLowerCase();
+      const text = card.textContent.toLowerCase();
+
+      const match =
+        keyword === "" ||
+        name.includes(keyword) ||
+        role.includes(keyword) ||
+        text.includes(keyword);
+
+      card.style.display = match ? "" : "none";
+    });
+  });
+}
+// === 로그인 느낌만 내는 데모 스크립트 ===
+
+const loginBtn   = document.getElementById('loginBtn');
+const signupBtn  = document.getElementById('signupBtn');
+const userInfo   = document.getElementById('userInfo');
+const mypageLink = document.getElementById('mypageLink');
+
+function showLoggedIn(name) {
+  if (loginBtn)  loginBtn.style.display  = 'none';
+  if (signupBtn) signupBtn.style.display = 'none';
+
+  if (mypageLink) mypageLink.style.display = 'inline-flex';
+
+  if (userInfo) {
+    userInfo.style.display = 'inline-flex';
+    userInfo.textContent   = `${name} さんでログイン中（ログアウト）`;
+  }
+}
+
+function showLoggedOut() {
+  if (loginBtn)  loginBtn.style.display  = 'inline-flex';
+  if (signupBtn) signupBtn.style.display = 'inline-flex';
+
+  if (mypageLink) mypageLink.style.display = 'none';
+  if (userInfo)   userInfo.style.display   = 'none';
+}
+
+// 로그인 버튼 클릭
+if (loginBtn) {
+  loginBtn.addEventListener('click', () => {
+    const name = prompt('ユーザー名を入力してください（デモ用）');
+    if (!name) return;
+    showLoggedIn(name.trim());
+  });
+}
+
+// 신규등록 버튼도 동일하게 처리
+if (signupBtn) {
+  signupBtn.addEventListener('click', () => {
+    const name = prompt('新規登録：ユーザー名を入力してください（デモ用）');
+    if (!name) return;
+    showLoggedIn(name.trim());
+  });
+}
+
+// 로그인 상태 문구 클릭 → 로그아웃
+if (userInfo) {
+  userInfo.addEventListener('click', () => {
+    const ok = confirm('ログアウトしますか？');
+    if (ok) {
+      showLoggedOut();
+    }
+  });
+}
+
+// 마이페이지 클릭 → 지금은 데모 알림
+if (mypageLink) {
+  mypageLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('マイページ機能はデモ表示です。あとで自分のお気に入りチャンピオン一覧などに差し替えてOK！');
+  });
+}
+
+// 처음 로딩 시 로그아웃 상태로 시작
+showLoggedOut();
