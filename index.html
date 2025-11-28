@@ -15,18 +15,16 @@
       <div class="site-subtitle">リーグ・オブ・レジェンド 情報 / コミュニティ</div>
     </div>
 
-    <!-- 오른쪽: 로그인 / 회원등록 / 마이페이지 -->
-    <div class="auth-buttons">
-      <a href="#" id="mypageLink" class="mypage-link" style="display:none;">
-        マイページ
-      </a>
+    <!-- 오른쪽: 로그인 / 회원등록 / マイページ -->
+<div class="auth-buttons">
+  <a href="#mypageSection" id="mypageLink" class="mypage-link">マイページ</a>
 
-      <button id="loginBtn" class="btn-outline">ログイン</button>
-      <button id="signupBtn" class="btn-primary">新規登録</button>
+  <button id="loginBtn" class="btn-outline">ログイン</button>
+  <button id="signupBtn" class="btn-primary">新規登録</button>
 
-      <span id="userInfo" class="user-info" style="display:none;"></span>
-    </div>
-  </div>
+  <span id="userInfo" class="user-info" style="display:none;"></span>
+</div>
+
 </header>
 
 
@@ -343,8 +341,23 @@
             後で自分のデータに差し替えてもよい。
           </p>
         </section>
-      </aside>
+              </aside>
+
+      <!-- ⭐ マイページ セクション ⭐ -->
+      <section id="mypageSection" class="mypage-section">
+        <h2 class="mypage-title">マイページ</h2>
+        <p id="mypageIntro" class="mypage-intro">
+          ログインすると、あなた向けのおすすめチャンピオンが表示されます。（サンプル）
+        </p>
+
+        <div class="mypage-grid" id="mypageFavList">
+          <!-- 로그인 전에는 비어 있음 -->
+        </div>
+      </section>
+
     </main>
+
+
 
     <footer class="site-footer">
       本サイトは学習目的で作成した非営利のファンコンテンツです。<br>
@@ -354,48 +367,64 @@
 
     <script src="script.js"></script>
     <script>
-  const loginBtn  = document.getElementById('loginBtn');
-  const signupBtn = document.getElementById('signupBtn');
-  const userInfo  = document.getElementById('userInfo');
+  const loginBtn   = document.getElementById('loginBtn');
+  const signupBtn  = document.getElementById('signupBtn');
+  const userInfo   = document.getElementById('userInfo');
+  const mypageLink = document.getElementById('mypageLink');
 
+  // 로그인 상태로 표시
   function showLoggedIn(name) {
-    loginBtn.style.display  = 'none';
-    signupBtn.style.display = 'none';
-    userInfo.style.display  = 'inline-flex';
-    userInfo.textContent    = name + ' さんでログイン中（ログアウト）';
+    if (loginBtn)  loginBtn.style.display  = 'none';
+    if (signupBtn) signupBtn.style.display = 'none';
+
+    // 마イページ는 항상 보이게 할 거라 display 건드리지 않음
+
+    if (userInfo) {
+      userInfo.style.display = 'inline-flex';
+      userInfo.textContent   = `${name} さんでログイン中（ログアウト）`;
+    }
   }
 
+  // 로그아웃 상태로 표시
   function showLoggedOut() {
-    loginBtn.style.display  = 'inline-flex';
-    signupBtn.style.display = 'inline-flex';
-    userInfo.style.display  = 'none';
+    if (loginBtn)  loginBtn.style.display  = 'inline-flex';
+    if (signupBtn) signupBtn.style.display = 'inline-flex';
+
+    if (userInfo)   userInfo.style.display   = 'none';
+    // 마イページ는 항상 보이니까 여기서도 건드리지 않음
   }
 
   // 로그인 버튼 클릭 → 이름만 입력 받고 바로 "로그인된 상태"로 전환
-  loginBtn.addEventListener('click', () => {
-    const name = prompt('ユーザー名を入力してください（デモ用）');
-    if (!name) {
-      return; // 취소하거나 빈 값이면 아무것도 안 함
-    }
-    showLoggedIn(name.trim());
-  });
+  if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+      const name = prompt('ユーザー名を入力してください（デモ用）');
+      if (!name) return;
+      showLoggedIn(name.trim());
+    });
+  }
 
-  // 회원등록 버튼도 같은 방식으로 써도 되고, '준비중' 알림만 띄워도 됨
-  signupBtn.addEventListener('click', () => {
-    const name = prompt('新規登録：ユーザー名を入力してください（デモ用）');
-    if (!name) {
-      return;
-    }
-    showLoggedIn(name.trim());
-  });
+  // 회원등록 버튼도 같은 방식
+  if (signupBtn) {
+    signupBtn.addEventListener('click', () => {
+      const name = prompt('新規登録：ユーザー名を入力してください（デモ用）');
+      if (!name) return;
+      showLoggedIn(name.trim());
+    });
+  }
 
   // 로그인 상태 문구 클릭 → 로그아웃
-  userInfo.addEventListener('click', () => {
-    const ok = confirm('ログアウトしますか？');
-    if (ok) {
-      showLoggedOut();
-    }
-  });
+  if (userInfo) {
+    userInfo.addEventListener('click', () => {
+      const ok = confirm('ログアウトしますか？');
+      if (ok) {
+        showLoggedOut();
+      }
+    });
+  }
+
+
+  // 처음 로딩은 로그아웃 상태에서 시작
+  showLoggedOut();
 </script>
 </body>
 </html>

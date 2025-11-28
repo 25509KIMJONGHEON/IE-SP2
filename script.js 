@@ -1,8 +1,15 @@
+// ===============================
 // DOM 로드 후 실행
+// ===============================
 document.addEventListener("DOMContentLoaded", () => {
-  setupChampionSearch();
+  setupChampionSearch();   // 챔피언 검색 기능
+  initAuthAndMyPage();     // 로그인 + 마이페이지 기능
 });
 
+
+// ===============================
+// 챔피언 검색 기능
+// ===============================
 function setupChampionSearch() {
   const input = document.getElementById("champion-search-input");
   const cards = document.querySelectorAll(".champion-card");
@@ -13,8 +20,8 @@ function setupChampionSearch() {
     const keyword = input.value.trim().toLowerCase();
 
     cards.forEach((card) => {
-      const name = card.dataset.name.toLowerCase();
-      const role = card.dataset.role.toLowerCase();
+      const name = (card.dataset.name || "").toLowerCase();
+      const role = (card.dataset.role || "").toLowerCase();
       const text = card.textContent.toLowerCase();
 
       const match =
@@ -27,68 +34,153 @@ function setupChampionSearch() {
     });
   });
 }
-// === 로그인 느낌만 내는 데모 스크립트 ===
 
-const loginBtn   = document.getElementById('loginBtn');
-const signupBtn  = document.getElementById('signupBtn');
-const userInfo   = document.getElementById('userInfo');
-const mypageLink = document.getElementById('mypageLink');
 
-function showLoggedIn(name) {
-  if (loginBtn)  loginBtn.style.display  = 'none';
-  if (signupBtn) signupBtn.style.display = 'none';
-
-  if (mypageLink) mypageLink.style.display = 'inline-flex';
-
-  if (userInfo) {
-    userInfo.style.display = 'inline-flex';
-    userInfo.textContent   = `${name} さんでログイン中（ログアウト）`;
+// ===============================
+// マイページ 추천 챔피언 데이터
+// ===============================
+const favoriteChampsSample = [
+  {
+    name: "ヤスオ",
+    role: "ファイター / アサシン",
+    lane: "ミッド / ボット",
+    tier: "A",
+    desc: "ソロキルと集団戦のどちらでもキャリーを狙える、操作難易度高めの人気チャンピオン。"
+  },
+  {
+    name: "ヨネ",
+    role: "ファイター / アサシン",
+    lane: "ミッド / トップ",
+    tier: "A",
+    desc: "ロングトレードと一気に距離を詰めるコンボが得意な、兄弟チャンピオン。"
+  },
+  {
+    name: "アーリ",
+    role: "メイジ / アサシン",
+    lane: "ミッド",
+    tier: "S",
+    desc: "ローム性能とピック性能が高く、初心者〜上級者まで幅広く使われる安定チャンピオン。"
   }
+];
+
+
+// ===============================
+// マイページ 렌더링
+// ===============================
+function renderMyPage(userName) {
+  const introEl = document.getElementById("mypageIntro");
+  const listEl  = document.getElementById("mypageFavList");
+
+  // 디버깅용 로그
+  console.log("renderMyPage called. userName =", userName, introEl, listEl);
+
+  if (!introEl || !listEl) return;
+
+  if (userName) {
+    introEl.textContent = `${userName} さん向けおすすめチャンピオン（サンプル）`;
+  } else {
+    introEl.textContent =
+      "ログインすると、あなた向けのおすすめチャンピオンが表示されます。（サンプル）";
+  }
+
+  if (!userName) {
+    listEl.innerHTML = "";
+    return;
+  }
+
+  listEl.innerHTML = favoriteChampsSample
+    .map((c) => {
+      const tierClass =
+        c.tier === "S"
+          ? "tier-badge tier-s"
+          : c.tier === "A"
+          ? "tier-badge tier-a"
+          : "tier-badge tier-b";
+
+      return `
+        <article class="mypage-champ-card">
+          <div class="mypage-champ-header">
+            <div>
+              <div class="mypage-champ-name">${c.name}</div>
+              <div class="mypage-champ-role">${c.role}</div>
+            </div>
+            <span class="${tierClass}">${c.tier}ティア</span>
+          </div>
+          <div class="mypage-champ-lane">レーン：${c.lane}</div>
+          <p class="mypage-champ-desc">${c.desc}</p>
+        </article>
+      `;
+    })
+    .join("");
 }
 
-function showLoggedOut() {
-  if (loginBtn)  loginBtn.style.display  = 'inline-flex';
-  if (signupBtn) signupBtn.style.display = 'inline-flex';
+// ===============================
+// 로그인 + 마イページ 초기화
+// ===============================
+function initAuthAndMyPage() {
+  const loginBtn   = document.getElementById("loginBtn");
+  const signupBtn  = document.getElementById("signupBtn");
+  const userInfo   = document.getElementById("userInfo");
+  const mypageLink = document.getElementById("mypageLink");
 
-  if (mypageLink) mypageLink.style.display = 'none';
-  if (userInfo)   userInfo.style.display   = 'none';
-}
+  function showLoggedIn(name) {
+    if (loginBtn)  loginBtn.style.display  = "none";
+    if (signupBtn) signupBtn.style.display = "none";
 
-// 로그인 버튼 클릭
-if (loginBtn) {
-  loginBtn.addEventListener('click', () => {
-    const name = prompt('ユーザー名を入力してください（デモ用）');
-    if (!name) return;
-    showLoggedIn(name.trim());
-  });
-}
-
-// 신규등록 버튼도 동일하게 처리
-if (signupBtn) {
-  signupBtn.addEventListener('click', () => {
-    const name = prompt('新規登録：ユーザー名を入力してください（デモ用）');
-    if (!name) return;
-    showLoggedIn(name.trim());
-  });
-}
-
-// 로그인 상태 문구 클릭 → 로그아웃
-if (userInfo) {
-  userInfo.addEventListener('click', () => {
-    const ok = confirm('ログアウトしますか？');
-    if (ok) {
-      showLoggedOut();
+    if (userInfo) {
+      userInfo.style.display = "inline-flex";
+      userInfo.textContent   = `${name} さんでログイン中（ログアウト）`;
     }
-  });
-}
 
-// 마이페이지 클릭 → 지금은 데모 알림
-if (mypageLink) {
-  mypageLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('マイページ機能はデモ表示です。あとで自分のお気に入りチャンピオン一覧などに差し替えてOK！');
-  });
-}
+    renderMyPage(name);
+  }
 
-// 처음 로딩 시 로그아웃 상태로 시작
-showLoggedOut();
+  function showLoggedOut() {
+    if (loginBtn)  loginBtn.style.display  = "inline-flex";
+    if (signupBtn) signupBtn.style.display = "inline-flex";
+
+    if (userInfo) userInfo.style.display = "none";
+
+    renderMyPage(null);
+  }
+
+  // 로그인 버튼
+  if (loginBtn) {
+    loginBtn.addEventListener("click", () => {
+      const name = prompt("ユーザー名を入力してください（デモ用）");
+      if (!name) return;
+      showLoggedIn(name.trim());
+    });
+  }
+
+  // 신규 등록 버튼
+  if (signupBtn) {
+    signupBtn.addEventListener("click", () => {
+      const name = prompt("新規登録：ユーザー名を入力してください（デモ用）");
+      if (!name) return;
+      showLoggedIn(name.trim());
+    });
+  }
+
+  // 로그인 상태 텍스트 클릭 → 로그아웃
+  if (userInfo) {
+    userInfo.addEventListener("click", () => {
+      const ok = confirm("ログアウトしますか？");
+      if (ok) showLoggedOut();
+    });
+  }
+
+  // マイページ 클릭 → 아래 섹션으로 스크롤
+  if (mypageLink) {
+    const section = document.getElementById("mypageSection");
+    if (section) {
+      mypageLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        section.scrollIntoView({ behavior: "smooth" });
+      });
+    }
+  }
+
+  // 첫 로딩은 로그아웃 상태
+  showLoggedOut();
+}
