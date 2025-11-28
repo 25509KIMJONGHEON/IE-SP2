@@ -71,7 +71,6 @@ function renderMyPage(userName) {
   const introEl = document.getElementById("mypageIntro");
   const listEl  = document.getElementById("mypageFavList");
 
-  // 디버깅용 로그
   console.log("renderMyPage called. userName =", userName, introEl, listEl);
 
   if (!introEl || !listEl) return;
@@ -114,8 +113,9 @@ function renderMyPage(userName) {
     .join("");
 }
 
+
 // ===============================
-// 로그인 + 마イページ 초기화
+// 로그인 + マイページ 초기화
 // ===============================
 function initAuthAndMyPage() {
   const loginBtn   = document.getElementById("loginBtn");
@@ -124,6 +124,8 @@ function initAuthAndMyPage() {
   const mypageLink = document.getElementById("mypageLink");
 
   function showLoggedIn(name) {
+    console.log("showLoggedIn called with", name);
+
     if (loginBtn)  loginBtn.style.display  = "none";
     if (signupBtn) signupBtn.style.display = "none";
 
@@ -136,6 +138,8 @@ function initAuthAndMyPage() {
   }
 
   function showLoggedOut() {
+    console.log("showLoggedOut called");
+
     if (loginBtn)  loginBtn.style.display  = "inline-flex";
     if (signupBtn) signupBtn.style.display = "inline-flex";
 
