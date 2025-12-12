@@ -1,0 +1,618 @@
+/* 리셋 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background-color: #020617;
+  color: #e5e7eb;
+}
+
+/* 상단 바 */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  background-color: #020617;
+  border-bottom: 1px solid #1f2937;
+}
+
+.logo-area .site-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.logo-area .site-subtitle {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-top: 2px;
+}
+
+.auth-area {
+  display: flex;
+  gap: 8px;
+}
+
+/* 버튼 공통 */
+button,
+.btn-primary,
+.btn-outline,
+.btn-ghost,
+.champ-link {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.btn-primary,
+.btn-outline,
+.btn-ghost,
+.champ-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease,
+    color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #eff6ff;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.55);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #e5e7eb;
+  border: 1px solid #4b5563;
+}
+
+.btn-outline:hover {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #e5e7eb;
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.btn-ghost:hover {
+  background: rgba(15, 23, 42, 0.9);
+  transform: translateY(-1px);
+}
+
+.small {
+  font-size: 0.8rem;
+  padding: 4px 10px;
+}
+
+/* 네비게이션 */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 32px;
+  background-color: #020617;
+  border-bottom: 1px solid #1f2937;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-left {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-item a {
+  display: block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #d1d5db;
+  font-size: 0.9rem;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.nav-item a:hover {
+  background-color: #1f2937;
+  color: #f9fafb;
+  transform: translateY(-1px);
+}
+
+.nav-item.active a {
+  background-color: #2563eb;
+  color: #f9fafb;
+}
+
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-search input {
+  background-color: #020617;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  padding: 6px 12px;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+}
+
+/* 레이아웃 */
+.layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1.9fr) 280px;
+  gap: 16px;
+  padding: 16px 32px 40px;
+}
+
+/* 공통 패널 */
+.panel {
+  background-color: #020617;
+  border-radius: 14px;
+  padding: 14px 14px 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.8);
+  border: 1px solid #111827;
+}
+
+.panel-title {
+  font-size: 0.95rem;
+  margin: 0 0 8px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.panel-header.between {
+  justify-content: space-between;
+}
+
+/* 히어로 카드 (배경 이미지) */
+.hero-card {
+  position: relative;
+  border-radius: 18px;
+  padding: 60px 56px;
+  overflow: hidden;
+  color: #ffffff;
+  margin-bottom: 16px;
+  min-height: 280px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+}
+
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/Yone_Splash_11.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.45);
+  z-index: 0;
+}
+
+.hero-card * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+}
+
+.hero-text p {
+  margin: 0 0 16px;
+  max-width: 520px;
+  font-size: 0.95rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 링크 리스트 / 칩 */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.link-list li {
+  margin-bottom: 6px;
+}
+
+.link-list a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.link-list a:hover {
+  text-decoration: underline;
+}
+
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  border-radius: 999px;
+  border: 1px solid #1f2937;
+  background-color: #020617;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.chip:hover {
+  background-color: #111827;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.9);
+}
+
+/* 뉴스 티커 */
+.news-ticker {
+  overflow: hidden;
+  max-height: 80px;
+  border-radius: 10px;
+  background: radial-gradient(circle at left, #0f172a, #020617);
+  border: 1px solid #111827;
+}
+
+.ticker-list {
+  list-style: none;
+  padding: 8px 12px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: ticker-scroll 16s linear infinite;
+}
+
+.ticker-list li {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* 챔피언 카드 */
+.champion-search input {
+  background-color: #020617;
+  border-radius: 999px;
+  border: 1px solid #4b5563;
+  padding: 6px 12px;
+  color: #e5e7eb;
+  font-size: 0.85rem;
+  min-width: 220px;
+}
+
+.champion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.champion-card {
+  position: relative;
+  padding: 12px 12px 14px;
+  border-radius: 12px;
+  background: radial-gradient(circle at top left, #1d283a, #020617 60%);
+  border: 1px solid #111827;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.95);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.champion-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 1);
+  border-color: #2563eb;
+}
+
+.champion-card h3 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.champ-meta {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.champ-desc {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  color: #d1d5db;
+}
+
+.champ-link {
+  font-size: 0.8rem;
+  background-color: rgba(37, 99, 235, 0.1);
+  color: #bfdbfe;
+  border-radius: 999px;
+  padding: 4px 10px;
+  border: 1px solid rgba(37, 99, 235, 0.4);
+}
+
+.champ-link:hover {
+  background-color: rgba(37, 99, 235, 0.2);
+}
+
+/* 티어리스트 */
+.tier-row {
+  margin: 4px 0;
+  font-size: 0.8rem;
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: #020617;
+  margin-right: 6px;
+}
+
+.tier-s {
+  background-color: #f97316;
+}
+
+.tier-a {
+  background-color: #22c55e;
+}
+
+.tier-b {
+  background-color: #38bdf8;
+}
+
+.note {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: #9ca3af;
+}
+
+/* 레이아웃 컬럼 */
+.col-left,
+.col-center,
+.col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 푸터 */
+.site-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+  padding: 16px 12px 28px;
+  border-top: 1px solid #111827;
+}
+
+/* 반응형 */
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 250px minmax(0, 2.1fr);
+  }
+
+  .col-right {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 12px 14px 28px;
+  }
+
+  .col-left {
+    order: 2;
+  }
+
+  .col-center {
+    order: 1;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .nav-left {
+    flex-wrap: wrap;
+  }
+
+  .hero-card {
+    padding: 40px 20px;
+    min-height: 220px;
+  }
+}
+
+/* --- 헤더 정렬 --- */
+.top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- 로그인 / 마イページ 영역 --- */
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 로그인 상태 텍スト */
+.user-info {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* マイページ 링크 */
+.mypage-link {
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.mypage-link:hover {
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+  transform: translateY(-1px);
+}
+
+/* 버튼 hover */
+.auth-buttons button {
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease, filter 0.15s ease;
+}
+
+.auth-buttons button:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
+  transform: translateY(-1px);
+}
+
+/* --- マイページ セクション --- */
+
+.mypage-section {
+  margin-top: 40px;
+  padding: 24px 28px;
+  border-radius: 24px;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%),
+              rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.mypage-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.mypage-intro {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 16px;
+}
+
+.mypage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.mypage-champ-card {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(30, 64, 175, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mypage-champ-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mypage-champ-name {
+  font-weight: 600;
+}
+
+.mypage-champ-role {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.mypage-champ-lane {
+  font-size: 0.75rem;
+  opacity: 0.9;
+}
+
+.mypage-champ-desc {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.tier-badge {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.tier-s {
+  background: #fb923c;
+  color: #111827;
+}
+.tier-a {
+  background: #4ade80;
+  color: #052e16;
+}
+.tier-b {
+  background: #60a5fa;
+  color: #0b1220;
+}

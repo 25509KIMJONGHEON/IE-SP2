@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JH LoLインフォ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="top-bar">
+  <div class="top-bar-inner">
+    <!-- 왼쪽: 로고 영역 -->
+    <div class="logo-area">
+      <div class="site-title">JH LoLインフォ</div>
+      <div class="site-subtitle">リーグ・オブ・レジェンド 情報 / コミュニティ</div>
+    </div>
+
+    <!-- 오른쪽: 로그인 / 회원등록 / マイページ -->
+<div class="auth-buttons">
+  <a href="#mypageSection" id="mypageLink" class="mypage-link">マイページ</a>
+
+<button id="loginBtn" class="btn-outline">ログイン</button>
+<button id="signupBtn" class="btn-primary">新規登録</button>
+<span id="userInfo" class="user-info" style="display:none;"></span>
+
+</div>
+</header>
+
+
+    <nav class="main-nav">
+      <ul class="nav-left">
+        <li class="nav-item active">
+          <a href="#">ホーム</a>
+        </li>
+
+        <!-- チャンピオン（公式ページ） -->
+        <li class="nav-item">
+          <a href="https://www.leagueoflegends.com/ja-jp/champions/"
+             target="_blank" rel="noopener noreferrer">
+            チャンピオン
+          </a>
+        </li>
+
+        <!-- 攻略 / 日本語DB（OP.GG 日本語版） -->
+        <li class="nav-item">
+          <a href="https://www.op.gg/?hl=ja_JP"
+             target="_blank" rel="noopener noreferrer">
+            攻略
+          </a>
+        </li>
+
+        <!-- LoLデータベース（OP.GG 日本語版） -->
+        <li class="nav-item">
+          <a href="https://www.op.gg/?hl=ja_JP"
+             target="_blank" rel="noopener noreferrer">
+            LoLデータベース
+          </a>
+        </li>
+
+        <!-- コミュニティ（Reddit） -->
+        <li class="nav-item">
+          <a href="https://www.reddit.com/r/leagueoflegends/"
+             target="_blank" rel="noopener noreferrer">
+            コミュニティ
+          </a>
+        </li>
+
+        <!-- ティアリスト（OP.GG 日本語版） -->
+        <li class="nav-item">
+          <a href="https://www.op.gg/champions?hl=ja_JP"
+             target="_blank" rel="noopener noreferrer">
+            ティアリスト
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-search">
+        <input type="search" placeholder="サモナー名 / チャンピオン検索">
+        <button class="btn-outline small">検索</button>
+      </div>
+    </nav>
+
+    <main class="layout">
+      <!-- 左カラム -->
+      <aside class="col-left">
+        <section class="panel">
+          <h2 class="panel-title">LoL 主要メニュー</h2>
+          <ul class="link-list">
+            <li>
+              <a href="https://www.leagueoflegends.com/ja-jp/champions/"
+                 target="_blank" rel="noopener noreferrer">
+                ● チャンピオン情報
+              </a>
+            </li>
+            <li>
+              <a href="https://www.op.gg/?hl=ja_JP"
+                 target="_blank" rel="noopener noreferrer">
+                ● シーズン15 ルーン / アイテムDB
+              </a>
+            </li>
+            <li>
+              <a href="https://www.op.gg/champions?hl=ja_JP"
+                 target="_blank" rel="noopener noreferrer">
+                ● チャンピオン攻略
+              </a>
+            </li>
+            <li>
+              <a href="https://www.op.gg/champions?hl=ja_JP"
+                 target="_blank" rel="noopener noreferrer">
+                ● パッチ別ティアリスト
+              </a>
+            </li>
+            <li>
+              <a href="https://www.reddit.com/r/leagueoflegends/"
+                 target="_blank" rel="noopener noreferrer">
+                ● 小技 / ノウハウ
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">LoLデータベース へのショートカット</h2>
+          <div class="chip-list">
+            <a href="https://www.op.gg/champions?hl=ja_JP"
+               target="_blank" rel="noopener noreferrer" class="chip">
+              ルーンシミュレーター
+            </a>
+            <a href="https://www.op.gg/items?hl=ja_JP"
+               target="_blank" rel="noopener noreferrer" class="chip">
+              アイテムDB
+            </a>
+            <a href="https://www.op.gg/summoners?hl=ja_JP"
+               target="_blank" rel="noopener noreferrer" class="chip">
+              サモナースペル
+            </a>
+            <a href="https://www.op.gg/champions?hl=ja_JP"
+               target="_blank" rel="noopener noreferrer" class="chip">
+              スキンギャラリー
+            </a>
+          </div>
+        </section>
+      </aside>
+
+      <!-- 中央カラム -->
+      <section class="col-center">
+        <!-- ヒーローカード -->
+        <section class="hero-card">
+          <div class="hero-text">
+            <h1>リーグ・オブ・レジェンド 情報ハブ</h1>
+            <p>
+              最新パッチノート、eスポーツニュース、チャンピオン攻略、ティアリストまで
+              ひとつのページで確認できる、LoL情報サイトのトップページサンプル。
+            </p>
+            <div class="hero-actions">
+              <a href="https://www.leagueoflegends.com/ja-jp/news/tags/patch-notes/"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn-primary">
+                最新パッチを見る
+              </a>
+              <a href="https://www.op.gg/champions?hl=ja_JP"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn-outline">
+                ティアリストをチェック
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ニュース（ティッカーつき） -->
+        <section class="panel" id="news">
+          <div class="panel-header">
+            <h2 class="panel-title">最新LoLニュース</h2>
+          </div>
+          <div class="news-ticker">
+            <ul class="ticker-list">
+              <li>パッチ15.15 まとめ ― メタを揺るがす大型チャンピオン調整</li>
+              <li>LCK 2025 決勝 T1 vs KT 名試合振り返り</li>
+              <li>ソロランクでキャリーしやすいジャングルチャンプ5選</li>
+              <li>2025 ワールドスキンイベント 情報 / 報酬一覧</li>
+              <li>初心者向け：ロール別おすすめチャンピオン入門</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- チャンピオン一覧 + 検索 -->
+        <section class="panel" id="champions-section">
+          <div class="panel-header between">
+            <h2 class="panel-title">チャンピオン一覧（サンプル）</h2>
+            <div class="champion-search">
+              <input
+                type="search"
+                id="champion-search-input"
+                placeholder="チャンピオン名 / ロールで検索">
+            </div>
+          </div>
+
+          <div class="champion-grid">
+            <!-- チャンピオンカード：必要に応じてコピーして増やせば 됨 -->
+            <article class="champion-card"
+                     data-name="ヨネ"
+                     data-role="ファイター アサシン">
+              <h3>ヨネ</h3>
+              <p class="champ-meta">ロール：ファイター / アサシン</p>
+              <p class="champ-desc">一気に距離を詰めて継続火力を出すブリンク型ファイター。</p>
+              <a href="https://www.leagueoflegends.com/ja-jp/champions/yone/"
+                 target="_blank" rel="noopener noreferrer"
+                 class="champ-link">
+                公式チャンピオン紹介へ
+              </a>
+            </article>
+
+            <article class="champion-card"
+                     data-name="ヤスオ"
+                     data-role="ファイター アサシン">
+              <h3>ヤスオ</h3>
+              <p class="champ-meta">ロール：ファイター / アサシン</p>
+              <p class="champ-desc">ノックアップからの一斉攻撃で有名な人気チャンピオン。</p>
+              <a href="https://www.leagueoflegends.com/ja-jp/champions/yasuo/"
+                 target="_blank" rel="noopener noreferrer"
+                 class="champ-link">
+                公式チャンピオン紹介へ
+              </a>
+            </article>
+
+            <article class="champion-card"
+                     data-name="アーリ"
+                     data-role="メイジ アサシン">
+              <h3>アーリ</h3>
+              <p class="champ-meta">ロール：メイジ / アサシン</p>
+              <p class="champ-desc">スキルショットとチャームでキルチャンスを作るメイジ。</p>
+              <a href="https://www.leagueoflegends.com/ja-jp/champions/ahri/"
+                 target="_blank" rel="noopener noreferrer"
+                 class="champ-link">
+                公式チャンピオン紹介へ
+              </a>
+            </article>
+
+            <article class="champion-card"
+         data-name="リー・シン"
+         data-role="ジャングラー ファイター">
+  <h3>リー・シン</h3>
+  <p class="champ-meta">ロール：ジャングラー / ファイター</p>
+  <p class="champ-desc">高い機動力とキックコンボで有名なスキル依存チャンピオン。</p>
+  <a href="https://www.leagueoflegends.com/ja-jp/champions/leesin/"
+     target="_blank" rel="noopener noreferrer"
+     class="champ-link">
+    公式チャンピオン紹介へ
+  </a>
+</article>
+
+
+            <article class="champion-card"
+                     data-name="カイサ"
+                     data-role="マークスマン">
+              <h3>カイ＝サ</h3>
+              <p class="champ-meta">ロール：マークスマン</p>
+              <p class="champ-desc">AP / AD ハイブリッドビルドが可能な機動力の高いADC。</p>
+              <a href="https://www.leagueoflegends.com/ja-jp/champions/kaisa/"
+                 target="_blank" rel="noopener noreferrer"
+                 class="champ-link">
+                公式チャンピオン紹介へ
+              </a>
+            </article>
+
+            <article class="champion-card"
+                     data-name="ルル"
+                     data-role="サポート メイジ">
+              <h3>ルル</h3>
+              <p class="champ-meta">ロール：サポート / メイジ</p>
+              <p class="champ-desc">味方を守りながら相手の動きを制限するエンチャンター。</p>
+              <a href="https://www.leagueoflegends.com/ja-jp/champions/lulu/"
+                 target="_blank" rel="noopener noreferrer"
+                 class="champ-link">
+                公式チャンピオン紹介へ
+              </a>
+            </article>
+          </div>
+        </section>
+      </section>
+
+      <!-- 右カラム -->
+      <aside class="col-right">
+        <section class="panel">
+          <h2 class="panel-title">LoLコミュニティ</h2>
+          <ul class="link-list">
+            <li>
+              <a href="https://www.reddit.com/r/leagueoflegends/"
+                 target="_blank" rel="noopener noreferrer">
+                雑談掲示板（Reddit）
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/search?q=%23LoLJP"
+                 target="_blank" rel="noopener noreferrer">
+                #LoLJP ハッシュタグ
+              </a>
+            </li>
+            <li>
+              <a href="https://disboard.org/ja/servers/tag/league-of-legends"
+                 target="_blank" rel="noopener noreferrer">
+                Discord コミュニティ
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@RiotGamesJapan" target="_blank" rel="noopener noreferrer">
+                 公式YouTube（日本）
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">ロール別掲示板（イメージ）</h2>
+          <div class="chip-list">
+            <button class="chip">トップ</button>
+            <button class="chip">ジャングル</button>
+            <button class="chip">ミッド</button>
+            <button class="chip">ボット</button>
+            <button class="chip">サポート</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">簡易ティアリスト（サンプル）</h2>
+          <p class="tier-row">
+            <span class="tier-badge tier-s">Sティア</span>
+            ゼド・ヴィエゴ・アジール・カイ＝サ
+          </p>
+          <p class="tier-row">
+            <span class="tier-badge tier-a">Aティア</span>
+            カミール・リー・シン・ラカン・ジンクス
+          </p>
+          <p class="tier-row">
+            <span class="tier-badge tier-b">Bティア</span>
+            ガレン・エズリアル・モルガナ
+          </p>
+          <p class="note">
+            ※ 実際の統計ではなくUIデザイン用の例なので、<br>
+            後で自分のデータに差し替えてもよい。
+          </p>
+        </section>
+        </aside>
+
+      <section id="mypageSection" class="mypage-section">
+        <h2 class="mypage-title">マイページ</h2>
+        <p id="mypageIntro" class="mypage-intro">
+          ログインすると、あなた向けのおすすめチャンピオンが表示されます。（サンプル）
+        </p>
+        <div class="mypage-grid" id="mypageFavList"></div>
+      </section>
+
+    </main>
+
+
+
+
+    <footer class="site-footer">
+      本サイトは学習目的で作成した非営利のファンコンテンツです。<br>
+      画像およびゲームデータの著作権は Riot Games に帰属します。<br>
+      本プロジェクトは Riot Games とは一切関係ありません。
+    </footer>
+
+    <script>
+        // ===============================
+        // 챔피언 검색
+        // ===============================
+        function setupChampionSearch() {
+          const input = document.getElementById("champion-search-input");
+          const cards = document.querySelectorAll(".champion-card");
+
+          if (!input || !cards.length) return;
+
+          input.addEventListener("input", () => {
+            const keyword = input.value.trim().toLowerCase();
+
+            cards.forEach((card) => {
+              const name = (card.dataset.name || "").toLowerCase();
+              const role = (card.dataset.role || "").toLowerCase();
+              const text = card.textContent.toLowerCase();
+
+              const match =
+                keyword === "" ||
+                name.includes(keyword) ||
+                role.includes(keyword) ||
+                text.includes(keyword);
+
+              card.style.display = match ? "" : "none";
+            });
+          });
+        }
+
+        // ===============================
+        // 마이페이지 추천 챔피언 데이터
+        // ===============================
+        const favoriteChampsSample = [
+          {
+            name: "ヤスオ",
+            role: "ファイター / アサシン",
+            lane: "ミッド / ボット",
+            tier: "A",
+            desc: "ソロキルと集団戦のどちらでもキャリーを狙える、操作難易度高めの人気チャンピオン。"
+          },
+          {
+            name: "ヨネ",
+            role: "ファイター / アサシン",
+            lane: "ミッド / トップ",
+            tier: "A",
+            desc: "ロングトレードと一気に距離を詰めるコンボが得意な、兄弟チャンピオン。"
+          },
+          {
+            name: "アーリ",
+            role: "メイジ / アサシン",
+            lane: "ミッド",
+            tier: "S",
+            desc: "ローム性能とピック性能が高く、初心者〜上級者まで幅広く使われる安定チャンピオン。"
+          }
+        ];
+
+        // ===============================
+        // 마이페이지 렌더링
+        // ===============================
+        function renderMyPage(userName) {
+          const introEl = document.getElementById("mypageIntro");
+          const listEl  = document.getElementById("mypageFavList");
+
+          if (!introEl || !listEl) return;
+
+          if (userName) {
+            introEl.textContent = `${userName} さん向けおすすめチャンピオン（サンプル）`;
+          } else {
+            introEl.textContent =
+              "ログインすると、あなた向けのおすすめチャンピオンが表示されます。（サンプル）";
+          }
+
+          if (!userName) {
+            listEl.innerHTML = "";
+            return;
+          }
+
+          listEl.innerHTML = favoriteChampsSample
+            .map((c) => {
+              const tierClass =
+                c.tier === "S"
+                  ? "tier-badge tier-s"
+                  : c.tier === "A"
+                  ? "tier-badge tier-a"
+                  : "tier-badge tier-b";
+
+              return `
+                <article class="mypage-champ-card">
+                  <div class="mypage-champ-header">
+                    <div>
+                      <div class="mypage-champ-name">${c.name}</div>
+                      <div class="mypage-champ-role">${c.role}</div>
+                    </div>
+                    <span class="${tierClass}">${c.tier}ティア</span>
+                  </div>
+                  <div class="mypage-champ-lane">レーン：${c.lane}</div>
+                  <p class="mypage-champ-desc">${c.desc}</p>
+                </article>
+              `;
+            })
+            .join("");
+        }
+
+        // ===============================
+        // 로그인 + 마이페이지 초기화
+        // ===============================
+        function initAuthAndMyPage() {
+          const loginBtn    = document.getElementById("loginBtn");
+          const signupBtn   = document.getElementById("signupBtn");
+          const userInfo    = document.getElementById("userInfo");
+          const mypageLink  = document.getElementById("mypageLink");
+          const mypageSection = document.getElementById("mypageSection");
+
+          function showLoggedIn(name) {
+            if (loginBtn)  loginBtn.style.display  = "none";
+            if (signupBtn) signupBtn.style.display = "none";
+
+            if (userInfo) {
+              userInfo.style.display = "inline-flex";
+              userInfo.textContent   = `${name} さんでログイン中（ログアウト）`;
+            }
+
+            renderMyPage(name);
+          }
+
+          function showLoggedOut() {
+            if (loginBtn)  loginBtn.style.display  = "inline-flex";
+            if (signupBtn) signupBtn.style.display = "inline-flex";
+
+            if (userInfo) userInfo.style.display = "none";
+
+            renderMyPage(null);
+          }
+
+          // 로그인 버튼
+          if (loginBtn) {
+            loginBtn.addEventListener("click", () => {
+              const name = prompt("ユーザー名を入力してください（デモ用）");
+              if (!name) return;
+              showLoggedIn(name.trim());
+            });
+          }
+
+          // 신규 등록 버튼
+          if (signupBtn) {
+            signupBtn.addEventListener("click", () => {
+              const name = prompt("新規登録：ユーザー名を入力してください（デモ用）");
+              if (!name) return;
+              showLoggedIn(name.trim());
+            });
+          }
+
+          // 로그인 텍스트 클릭 → 로그아웃
+          if (userInfo) {
+            userInfo.addEventListener("click", () => {
+              const ok = confirm("ログアウトしますか？");
+              if (ok) showLoggedOut();
+            });
+          }
+
+          // 마이페이지 링크 클릭 → 섹션으로 스크롤
+          if (mypageLink && mypageSection) {
+            mypageLink.addEventListener("click", (e) => {
+              e.preventDefault();
+              mypageSection.scrollIntoView({ behavior: "smooth" });
+            });
+          }
+
+          // 첫 로딩은 로그아웃 상태
+          showLoggedOut();
+        }
+
+        // 이 스크립트는 body 맨 마지막에 있으니까 DOM은 이미 만들어진 상태
+        setupChampionSearch();
+        initAuthAndMyPage();
+      </script>
+      <!-- 🔼 여기까지 붙여넣기 🔼 -->
+
+  </body>
+</html>
